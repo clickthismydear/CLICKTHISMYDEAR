@@ -37,6 +37,62 @@ h2{font-size:clamp(34px,6vw,72px);line-height:1.15;margin:16px 0 28px}.script{fo
 @keyframes loveFloat{50%{transform:translateY(-5px) rotate(4deg)}}
 section .card > .kicker:first-child{position:relative;z-index:3;margin-top:0}
 @media(max-width:700px){section{padding:42px 10px}.card{max-height:calc(100dvh - 70px);padding:24px 14px}.slide-love3d{width:50px;height:50px}.slide-love3d:before{font-size:46px}}
+
+/* ===== V7 VIEWPORT / MOBILE FIXES ===== */
+html,body{width:100%;height:100%;height:100dvh;overflow:hidden!important;overscroll-behavior:none!important;touch-action:none!important}
+body{position:fixed;inset:0}
+section{height:100dvh;height:100svh;min-height:100svh;padding:clamp(18px,3.5vh,42px) clamp(10px,4vw,52px);overflow:hidden!important;display:none;place-items:center;touch-action:none!important}
+section.active{display:grid}
+.wrap{width:100%;height:auto;max-height:100%;display:grid;place-items:center}
+.card{width:min(1100px,100%);max-width:1100px;max-height:none!important;height:auto;overflow:visible!important;padding:clamp(22px,3.2vh,40px) clamp(16px,3vw,38px);margin:0 auto;transform-origin:center center;will-change:transform}
+.card>*{max-width:100%}
+.kicker{display:block;position:relative;z-index:5;margin:0 0 8px;line-height:1.4}
+.slide-love3d{z-index:4;margin:4px auto 10px}
+.heart{margin:8px auto 22px}
+h1{margin:14px 0 12px}
+h2{margin:10px 0 18px}
+p{margin-top:10px;margin-bottom:10px}
+.q{margin:12px auto;padding:20px;max-width:850px}
+.timeline{gap:10px;max-width:850px}
+.moment{padding:16px 20px}
+.photos{margin:18px 0;gap:10px}
+.photo img{height:clamp(150px,22vh,250px)}
+.photo:nth-child(1) img,.photo:nth-child(5) img{height:clamp(310px,45vh,515px)}
+.letter{min-height:0;max-height:none}
+.btn{position:relative;z-index:10;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+input,button{touch-action:manipulation}
+/* Keep controls comfortably above mobile browser safe areas. */
+section .card .btn:last-of-type{margin-bottom:2px}
+@supports(padding:max(0px)){
+  section{padding-top:max(14px,env(safe-area-inset-top));padding-bottom:max(14px,env(safe-area-inset-bottom))}
+}
+@media(max-width:700px){
+  section{padding-left:8px;padding-right:8px}
+  .card{border-radius:24px;padding:18px 12px}
+  .kicker{font-size:9px;letter-spacing:3px}
+  .slide-love3d{width:46px;height:46px;margin:2px auto 7px}
+  .slide-love3d:before{font-size:42px}
+  .heart{width:104px;height:104px;margin:3px auto 10px}
+  .heart:before,.heart:after{width:104px;height:104px}
+  .heart:before{left:52px}.heart:after{top:-52px}
+  .script{font-size:clamp(28px,8vw,46px)}
+  h1{font-size:clamp(48px,13vw,88px);line-height:.82}
+  h2{font-size:clamp(25px,7vw,44px);line-height:1.12;margin-bottom:12px}
+  p{font-size:clamp(14px,4vw,18px);line-height:1.65}
+  .small{font-size:11px!important}
+  .q{padding:14px 10px;margin:9px auto}
+  .moment{padding:12px 14px}
+  .photos{grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}
+  .photo img,.photo:nth-child(1) img,.photo:nth-child(5) img{height:clamp(105px,17vh,175px)}
+  .btn{padding:11px 16px;margin:4px 2px;font-size:13px}
+  .count{gap:6px;margin:12px 0}
+  .unit{min-width:62px;padding:9px}
+  .num{font-size:22px}.lab{font-size:8px}
+  .route{margin:12px auto;gap:8px}
+  .proposal{padding:18px;margin-top:12px}
+  .ring{font-size:52px}
+  .cake{margin:12px auto;padding:14px}.cakeBody{font-size:72px}.flame{font-size:28px}.candles{font-size:23px}
+}
 </style>
 </head>
 <body>
@@ -132,7 +188,24 @@ section .card > .kicker:first-child{position:relative;z-index:3;margin-top:0}
 const letter=`প্রিয় মিম,\n\nআজ তোমার জন্মদিন। আর সত্যি বলতে, এই মুহূর্তে তোমার পাশে থাকতে না পারার আফসোসটাই সবচেয়ে বেশি হচ্ছে।\n\nইচ্ছে করছে তোমার সামনে বসে তোমার চোখের দিকে তাকিয়ে বলি—“শুভ জন্মদিন, আমার ভালোবাসা।” তোমার হাসিটা দেখি, তোমার সাথে একটু দুষ্টুমি করি, আর দিনের শেষে তোমাকে জড়িয়ে ধরে মনে মনে বলি—এই মানুষটাকেই আমি আমার জীবনে চেয়েছিলাম।\n\nতুমি আমার কাছে শুধু আমার স্ত্রী নও। তুমি আমার সবচেয়ে আপন মানুষ, আমার শান্তি, আমার অপেক্ষা, আমার ঘর।\n\nদূর দেশে থাকলে একটা জিনিস আরও ভালোভাবে বোঝা যায়—কাউকে ভালোবাসা মানে শুধু তার পাশে থাকা নয়; তাকে প্রতিদিন মনে রাখা, তার জন্য দোয়া করা, তার হাসিটাকে নিজের সুখের কারণ বানানো।\n\nমিম, আমি তোমার প্রতিটি স্বপ্নের পাশে থাকতে চাই। তোমার খারাপ দিনে তোমার আশ্রয় হতে চাই, ভালো দিনে তোমার সবচেয়ে বড় cheerleader হতে চাই।\n\nআজ তোমার জন্মদিনে আমার একটাই প্রার্থনা—তুমি যেন সবসময় হাসো। আর যদি কোনোদিন তোমার চোখে পানি আসে, তাহলে সেই পানি মুছে দেওয়ার মানুষটা যেন আমি হতে পারি।\n\nআমি দূরে আছি…\nকিন্তু আমার ভালোবাসা তোমার কাছেই আছে।\n\nশুভ জন্মদিন, আমার সুন্দরী স্ত্রী।\nতোমাকে আজও ভালোবাসি, আগামীকালও ভালোবাসব—আর প্রতিটি আগামীকালেও তোমাকেই বেছে নেব।\n\n— তোমার মানুষ, চিরদিনের জন্য ❤️`;
 let current=1,typed=false;
 const ids=Array.from({length:16},(_,i)=>'p'+(i+1));
-function fitSlide(el){if(!el)return;const card=el.querySelector('.card');if(!card)return;card.style.transform='';requestAnimationFrame(()=>{const pad=window.innerWidth<700?54:82;const available=window.innerHeight-pad;const natural=card.scrollHeight;const scale=Math.min(1, available/natural);card.style.transform=`scale(${scale})`;});}
+function fitSlide(el){
+  if(!el)return;
+  const card=el.querySelector('.card'); if(!card)return;
+  card.style.transform='scale(1)';
+  requestAnimationFrame(()=>{
+    const vv=window.visualViewport;
+    const vh=vv?vv.height:window.innerHeight;
+    const vw=vv?vv.width:window.innerWidth;
+    const sectionPad=vw<700?20:46;
+    const available=Math.max(260,vh-sectionPad);
+    const natural=Math.max(card.scrollHeight,card.offsetHeight);
+    let scale=Math.min(1,available/natural);
+    // Avoid an over-large card on very tall desktop displays and preserve usability on phones.
+    if(vw<700) scale=Math.min(scale,1);
+    card.style.transform=`scale(${scale})`;
+    el.dataset.scale=scale.toFixed(3);
+  });
+}
 function go(n){if(n<1||n>16)return;document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));const el=document.getElementById('p'+n);if(!el)return;el.classList.add('active');current=n;window.scrollTo(0,0);if(n===5)typeLetter();fitSlide(el);el.querySelector('.reveal')?.classList.add('on');}
 
 function unlock(){const v=document.getElementById('pass').value.trim();if(v==='02102002'){document.getElementById('gateMsg').textContent='Unlocked ❤️ Welcome to our story.';petals(25);setTimeout(()=>go(2),450)}else document.getElementById('gateMsg').textContent='Not quite… try your birthday in DDMMYYYY ❤️'}
@@ -160,6 +233,8 @@ window.addEventListener('wheel',blockPageScroll,{passive:false});
 window.addEventListener('touchmove',blockPageScroll,{passive:false});
 window.addEventListener('keydown',e=>{if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key)){e.preventDefault();}});
 window.addEventListener('resize',()=>fitSlide(document.querySelector('section.active')));
+if(window.visualViewport){window.visualViewport.addEventListener('resize',()=>fitSlide(document.querySelector('section.active')));window.visualViewport.addEventListener('scroll',()=>fitSlide(document.querySelector('section.active')));} 
+window.addEventListener('orientationchange',()=>setTimeout(()=>fitSlide(document.querySelector('section.active')),250));
 window.addEventListener('load',()=>go(1));
 petals(20);
 </script>
