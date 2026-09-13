@@ -30,9 +30,36 @@ h2{font-size:clamp(34px,6vw,72px);line-height:1.15;margin:16px 0 28px}.script{fo
 @media(max-width:700px){section{padding:60px 14px}.card{padding:30px 17px;border-radius:25px}.photos{grid-template-columns:1fr 1fr}.photo:nth-child(1),.photo:nth-child(5){grid-row:span 1}.photo img,.photo:nth-child(1) img,.photo:nth-child(5) img{height:220px}.route{font-size:10px}.heart{transform:rotate(-45deg) scale(.75);margin-top:-8px;margin-bottom:-8px}}
 
 .romantic-q{transition:.35s}.romantic-q.chosen{border-color:#ff7fa955;background:radial-gradient(circle at 50% 0,#ff4f9115,transparent 65%);box-shadow:0 18px 55px #ff4f9120}.romantic-q .btn{transition:.3s}.loveBurst{position:fixed;left:50%;top:55%;z-index:60;pointer-events:none;font-size:clamp(25px,5vw,55px);animation:loveRise 2.8s ease-out forwards;text-shadow:0 0 25px #ff7aa6}@keyframes loveRise{0%{transform:translate(-50%,-50%) scale(.3) rotate(0);opacity:0}12%{opacity:1}100%{transform:translate(calc(-50% + var(--lx)),calc(-50% - 55vh)) scale(1.4) rotate(var(--rot));opacity:0}}
+
+/* PREMIUM V4 additions */
+#gate{position:fixed;inset:0;z-index:999;background:radial-gradient(circle at 50% 35%,#5b174d 0,#160817 48%,#050307 100%);display:grid;place-items:center;padding:20px;transition:opacity .7s,visibility .7s}
+#gate.unlock{opacity:0;visibility:hidden;pointer-events:none}
+.gate-card{width:min(560px,100%);text-align:center;padding:45px 28px;border:1px solid #ffffff22;border-radius:35px;background:#ffffff0b;backdrop-filter:blur(20px);box-shadow:0 40px 120px #000b}
+.gate-lock{font-size:62px;animation:beat 1.6s infinite}.gate-input{width:min(280px,100%);padding:15px 18px;border-radius:999px;border:1px solid #ffffff2a;background:#0005;color:white;text-align:center;font-size:18px;outline:none;margin:10px}.gate-error{color:#ff9fbd;min-height:24px;font-size:13px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:25px 0}.feature{padding:24px 15px;border:1px solid var(--border);border-radius:24px;background:#ffffff08;transition:.3s}.feature:hover{transform:translateY(-5px);background:#ffffff0e}.feature .ico{font-size:35px}.feature b{display:block;color:var(--gold);margin:8px}
+.open-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:25px}.open-card{cursor:pointer;padding:24px;border:1px solid var(--border);border-radius:24px;background:#ffffff08;text-align:left;transition:.3s}.open-card:hover{transform:translateY(-4px);border-color:#ff8db355}.open-card b{color:var(--gold)}.open-content{display:none;margin-top:12px;color:#f9eaf1;line-height:1.9}.open-card.open .open-content{display:block}
+.future{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-top:25px}.future .feature{text-align:left}
+.reasons{font-size:clamp(30px,5vw,58px);min-height:150px;display:grid;place-items:center;color:var(--rose);font-family:"Great Vibes",cursive;padding:20px}.reasonNo{font:11px Arial;color:var(--muted);letter-spacing:3px}
+.cake{font-size:110px;cursor:pointer;filter:drop-shadow(0 0 25px #ff6098);animation:pulse 2s infinite}.cake-msg{min-height:70px}
+.voice{margin:20px auto;max-width:600px;padding:24px;border-radius:25px;background:#ffffff08;border:1px solid var(--border)}
+.voicebar{height:7px;border-radius:10px;background:#ffffff12;overflow:hidden;margin:15px 0}.voicebar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--pink));transition:width .2s}
+@media(max-width:700px){.feature-grid,.future,.open-grid{grid-template-columns:1fr}.gate-card{padding:35px 18px}.cake{font-size:85px}}
 </style>
 </head>
 <body>
+<div id="gate">
+ <div class="gate-card">
+  <div class="gate-lock">🔐❤️</div>
+  <div class="kicker">Private • For Mim Only</div>
+  <h2 class="script">A little secret universe</h2>
+  <p>এই গল্পটা শুধু তোমার জন্য। দরজা খুলতে আমাদের special date লিখো। ✨</p>
+  <input id="gateInput" class="gate-input" inputmode="numeric" maxlength="8" placeholder="DDMMYYYY">
+  <br><button class="btn" onclick="unlock()">Unlock My Story ❤️</button>
+  <div id="gateError" class="gate-error"></div>
+  <p class="small">Hint: the day my favourite person was born.</p>
+ </div>
+</div>
+
 <div class="bar" id="bar"></div><canvas id="stars"></canvas><div id="confetti"></div>
 
 <section id="home"><div class="wrap"><div class="card reveal">
@@ -61,6 +88,25 @@ h2{font-size:clamp(34px,6vw,72px);line-height:1.15;margin:16px 0 28px}.script{fo
 <figure class="photo"><img src="assets/memory-07.jpeg"><figcaption>আরও হাজারটা স্মৃতি বাকি।</figcaption></figure>
 </div><button class="btn" onclick="next('letter')">Open My Letter 💌</button></div></div></section>
 
+
+<section id="special"><div class="wrap"><div class="card reveal">
+<div class="kicker">Chapter III • Little doors to my heart</div><h2>তোমার জন্য আরও কিছু গোপন surprise 💌</h2>
+<div class="feature-grid">
+<div class="feature"><div class="ico">🎙️</div><b>My Voice</b><span class="small">শুনবে আমার লেখা message</span></div>
+<div class="feature"><div class="ico">💌</div><b>Open When</b><span class="small">যখনই আমাকে miss করবে</span></div>
+<div class="feature"><div class="ico">❤️</div><b>100 Reasons</b><span class="small">কেন তোমাকেই বেছে নিই</span></div>
+</div>
+<div class="voice"><div class="script">🎙️ A message you can hear</div><p class="small">Browser-এর নিজের voice দিয়ে আমার letter শুনতে Play চাপো।</p><button class="btn" onclick="speakLetter()">▶ Play My Message</button><button class="btn ghost" onclick="stopVoice()">■ Stop</button><div class="voicebar"><span id="voiceProgress"></span></div></div>
+<div class="q"><p class="script">💌 Open When…</p>
+<div class="open-grid">
+<div class="open-card" onclick="toggleOpen(this)"><b>🥺 যখন আমাকে miss করবে</b><div class="open-content">চোখ বন্ধ করো। দূরত্বটা কয়েক সেকেন্ডের জন্য ভুলে যাও। আমি হয়তো পাশে নেই, কিন্তু তোমার জন্য আমার ভালোবাসা এক মুহূর্তের জন্যও দূরে যায়নি। ❤️</div></div>
+<div class="open-card" onclick="toggleOpen(this)"><b>🌧️ যখন মন খারাপ হবে</b><div class="open-content">আজকের দিনটা খারাপ হতে পারে—তুমি খারাপ নও। একটু হাসো, একটু বিশ্রাম নাও, আর মনে রেখো: তোমার একজন মানুষ আছে যে তোমার হাসিটাকে নিজের সুখ ভাবে।</div></div>
+<div class="open-card" onclick="toggleOpen(this)"><b>🌙 ঘুমানোর আগে</b><div class="open-content">শুভরাত্রি, আমার মিম। আজও তোমার নাম মনে নিয়েই দিন শেষ করছি। আল্লাহ তোমাকে শান্তি আর নিরাপত্তায় রাখুন। 🤍</div></div>
+<div class="open-card" onclick="toggleOpen(this)"><b>❤️ যখন জানতে ইচ্ছে করবে কতটা ভালোবাসি</b><div class="open-content">একটা সংখ্যা দিয়ে সেটা মাপা যায় না। আজকের চেয়ে আগামীকাল বেশি, আর আগামীকালের চেয়েও তার পরের দিন বেশি।</div></div>
+</div></div>
+<div class="q"><div class="script">❤️ 100 Reasons I Choose You</div><div class="reasons" id="reasonText">তোমার হাসির জন্য…</div><div class="reasonNo" id="reasonNo">01 / 100</div><button class="btn" onclick="nextReason()">Next Reason ❤️</button></div>
+<button class="btn" onclick="next('letter')">Continue Our Story ✨</button>
+</div></div></section>
 <section id="letter"><div class="wrap"><div class="card reveal">
 <div class="kicker">Chapter III • Words I wish I could whisper</div><h2>মিম, এটা শুধু একটা birthday wish নয়।</h2>
 <div class="letter"><span id="typed"></span><span class="cursor"></span></div><button class="btn" onclick="next('poem')">Read Your Poem 🌙</button></div></div></section>
@@ -95,15 +141,36 @@ h2{font-size:clamp(34px,6vw,72px);line-height:1.15;margin:16px 0 28px}.script{fo
 <div class="q romantic-q"><p><b>৪.</b> আলো একটু কম, favourite song চলছে—তখন slow dance করবে আমার সাথে?</p><button class="btn ghost" onclick="romantic(this,'Yes… close to you 💃❤️')">Yes… close to you ❤️</button></div>
 <div class="q romantic-q"><p><b>৫.</b> আর যদি আমি বলি, “এই রাতটার সবচেয়ে সুন্দর অংশ কোনো জায়গা নয়—তুমি”?</p><button class="btn" onclick="romanticFinal(this)">তাহলে আমাকে আর ছাড়বে না ❤️</button></div>
 <div id="nightReply" class="answer"></div>
-<button class="btn" id="nightNext" style="display:none" onclick="next('yes')">One Last Proposal 💍</button>
+<button class="btn" id="nightNext" style="display:none" onclick="next('future')">One Last Proposal 💍</button>
 </div></div></section>
 
+
+<section id="future"><div class="wrap"><div class="card reveal">
+<div class="kicker">Chapter VII • The life we're still writing</div><h2>একদিন… আর কোনো goodbye থাকবে না। ✈️</h2>
+<p>আজকের দূরত্ব শুধু একটা chapter। আমাদের আসল গল্পটা এখনও সামনে।</p>
+<div class="future">
+<div class="feature"><div class="ico">🏠</div><b>Our First Home</b><span class="small">একটা ছোট্ট জায়গা, যেখানে তোমার হাসিই হবে সবচেয়ে সুন্দর decoration.</span></div>
+<div class="feature"><div class="ico">🌊</div><b>Our First Beach Day</b><span class="small">জুতো হাতে, পায়ের নিচে বালি, আর কোনো flight-এর countdown নেই।</span></div>
+<div class="feature"><div class="ico">☕</div><b>Our Favourite Café</b><span class="small">এক কাপ coffee, দুইজন মানুষ, আর endless গল্প।</span></div>
+<div class="feature"><div class="ico">🌙</div><b>Our Quiet Nights</b><span class="small">সবচেয়ে ordinary রাতগুলোও তোমার সাথে extraordinary হবে।</span></div>
+</div>
+<div class="q" style="margin-top:25px"><div class="script">Future Letter 🔐</div><p>এই চিঠিটা সেই দিনের জন্য, যেদিন আমরা এই distance chapter-এর শেষ পৃষ্ঠা লিখব।</p><button class="btn" onclick="revealFuture()">Open Future Me's Letter</button><div id="futureLetter" class="answer"></div></div>
+<button class="btn" onclick="next('yes')">Continue to Our Forever 💍</button>
+</div></div></section>
 <section id="yes"><div class="wrap"><div class="card reveal">
 <div class="kicker">Chapter VII • Your answer</div><div class="finalHeart">❤️</div>
 <div class="script">You said YES.</div><h2>তাহলে আমার পৃথিবীটা আজও ঠিক জায়গাতেই আছে।</h2>
 <p>কারণ আমার সবচেয়ে বড় সৌভাগ্য কোনো দামি জিনিস নয়—<br>আমার সবচেয়ে বড় সৌভাগ্য হলো, <b>তুমি আমাকে বেছে নিয়েছো।</b></p>
-<button class="btn" onclick="next('final')">Open Your Birthday Wish 🎂</button></div></div></section>
+<button class="btn" onclick="next('cake')">Open Your Birthday Wish 🎂</button></div></div></section>
 
+
+<section id="cake"><div class="wrap"><div class="card reveal">
+<div class="kicker">The birthday moment • Make a wish</div><h2>মিম, একটা wish করো… 🎂</h2>
+<p>তারপর cake-এ tap করো।</p>
+<div class="cake" onclick="blowCake()">🎂</div>
+<div id="cakeMsg" class="cake-msg"></div>
+<button class="btn" onclick="blowCake()">Make My Wish ✨</button>
+</div></div></section>
 <section id="final"><div class="wrap"><div class="card reveal">
 <div class="kicker">The final chapter • 02 October</div><div class="finalHeart">💖</div>
 <div class="script">Happy Birthday, My Beautiful Wife</div><h1 style="font-size:clamp(55px,10vw,110px)">Farjana<br>Akther Mim</h1>
@@ -155,5 +222,25 @@ petals(20);
 function romantic(btn,text){const q=btn.closest('.romantic-q');q.classList.add('chosen');q.querySelectorAll('.btn').forEach(b=>{b.disabled=true;b.style.opacity='.35'});btn.disabled=false;btn.style.opacity='1';btn.innerHTML='✓ '+text;loveBurst(12);}
 function loveBurst(n=12){for(let i=0;i<n;i++){let e=document.createElement('span');e.className='loveBurst';e.textContent=['❤️','💗','💖','💕','✨','🌹'][Math.floor(Math.random()*6)];e.style.setProperty('--lx',(Math.random()*70-35)+'vw');e.style.setProperty('--rot',(Math.random()*100-50)+'deg');e.style.left=(35+Math.random()*30)+'%';e.style.top=(48+Math.random()*12)+'%';document.body.appendChild(e);setTimeout(()=>e.remove(),3000)}}
 function romanticFinal(btn){romantic(btn,'Tonight, tomorrow, always — you ❤️');document.getElementById('nightReply').innerHTML='<p class="script">“তাহলে আজকের রাতটা আমাদের গল্পের নতুন শুরু।” 🌙❤️</p><p>অনেক অপেক্ষার পর পাওয়া এই কাছে আসা—শুধু একটি রাতের জন্য নয়; আরও হাজারটা শান্ত রাত, হাসি, গল্প আর ভালোবাসার জন্য।</p>';document.getElementById('nightNext').style.display='inline-block';loveBurst(60);confetti(100);}
+
+function unlock(){
+ const v=document.getElementById('gateInput').value.trim();
+ if(v==='02102002'){document.getElementById('gate').classList.add('unlock');petals(25);confetti(30)}
+ else document.getElementById('gateError').textContent='এই দরজার secret date-টা আবার চেষ্টা করো ❤️';
+}
+document.getElementById('gateInput').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+function toggleOpen(el){el.classList.toggle('open');if(el.classList.contains('open'))loveBurst(8)}
+const reasons=[
+'তোমার হাসির জন্য।','তুমি আমার সবচেয়ে আপন মানুষ বলে।','তোমার “কেমন আছো?”-এর জন্য।','তোমার ছোট ছোট যত্নের জন্য।','তুমি আমার ঘরের মতো শান্তি বলে।',
+'তোমার সাথে ভবিষ্যৎ কল্পনা করতে ভালো লাগে বলে।','তুমি আমার ভালো দিনের আনন্দ বাড়িয়ে দাও।','খারাপ দিনের ভরসা হয়ে থাকো বলে।','তোমার চোখের সেই চেনা মায়ার জন্য।','তুমি আমাকে আবারও তোমাকেই বেছে নিতে শেখাও বলে।'
+];
+let reasonIndex=0;
+function nextReason(){reasonIndex=(reasonIndex+1)%reasons.length;document.getElementById('reasonText').textContent=reasons[reasonIndex];document.getElementById('reasonNo').textContent=String(reasonIndex+1).padStart(2,'0')+' / 100';loveBurst(10)}
+let speech;
+function speakLetter(){stopVoice();speech=new SpeechSynthesisUtterance(letter);speech.lang='bn-BD';speech.rate=.88;speech.pitch=1.05;speech.onend=()=>document.getElementById('voiceProgress').style.width='100%';speech.onboundary=e=>{let pct=Math.min(100,(e.charIndex/Math.max(1,letter.length))*100);document.getElementById('voiceProgress').style.width=pct+'%'};speechSynthesis.speak(speech)}
+function stopVoice(){if('speechSynthesis' in window)speechSynthesis.cancel();document.getElementById('voiceProgress').style.width='0%'}
+function revealFuture(){document.getElementById('futureLetter').innerHTML='<p class="script">“Dear future Mim… we made it.” ❤️</p><p>যেদিন তুমি এই কথাগুলো পড়বে, আশা করি আমরা আর দূরত্ব গুনছি না। আমি চাই আমাদের ordinary দিনগুলোও যেন তখন celebration হয়—একসাথে breakfast, একসাথে হাসি, একসাথে চুপ করে থাকা। আর যদি জীবন কখনও কঠিন হয়, এই কথাটা মনে রেখো: আমি তোমাকে শুধু সহজ দিনের জন্য বেছে নিইনি। আমি তোমাকে সব দিনের জন্য বেছে নিয়েছি।</p>';confetti(45);petals(25)}
+let cakeDone=false;
+function blowCake(){if(cakeDone)return;cakeDone=true;document.querySelector('.cake').textContent='🕯️💨';document.getElementById('cakeMsg').innerHTML='<p class="script">Wish made. ✨</p><p>আমার wish-টা খুব simple: <b>তোমার হাসিটা যেন কোনোদিন কমে না যায়—আর আমাদের distance যেন খুব তাড়াতাড়ি শেষ হয়।</b> ❤️</p>';confetti(180);petals(55);loveBurst(45)}
 </script>
 </body></html>
