@@ -93,6 +93,55 @@ section .card .btn:last-of-type{margin-bottom:2px}
   .ring{font-size:52px}
   .cake{margin:12px auto;padding:14px}.cakeBody{font-size:72px}.flame{font-size:28px}.candles{font-size:23px}
 }
+
+/* ===== V8 FULL-VIEWPORT / ACCESSIBILITY / NAVIGATION FIX ===== */
+html,body{width:100%;height:100%;height:100dvh;margin:0;overflow:hidden!important;overscroll-behavior:none!important}
+body{position:fixed;inset:0;touch-action:manipulation}
+section{position:fixed;inset:0;width:100%;height:100dvh;height:100svh;min-height:0;max-height:100dvh;padding:clamp(12px,2.5vh,32px) clamp(10px,3vw,42px);display:none;align-items:center;justify-content:center;overflow:hidden!important;touch-action:manipulation}
+section.active{display:flex}
+.wrap{width:100%;height:100%;display:flex;align-items:center;justify-content:center;min-height:0}
+.card{width:min(1100px,100%);max-width:1100px;height:auto;max-height:none!important;overflow:visible!important;margin:0 auto;padding:clamp(18px,2.7vh,34px) clamp(14px,2.6vw,34px);transform-origin:center center;will-change:transform}
+.kicker{display:block;position:relative;z-index:20;margin:0 0 4px;line-height:1.35;white-space:normal}
+.slide-love3d{z-index:10;width:58px;height:58px;margin:3px auto 6px}
+.slide-love3d:before{font-size:52px}
+h1{margin:10px 0 8px}h2{margin:8px 0 14px;line-height:1.12}p{margin:7px 0;line-height:1.65}
+.q{margin:9px auto;padding:14px 16px;border-radius:20px}.q p{margin:0 0 7px}.moment{padding:13px 17px}.timeline{gap:8px}
+.btn{padding:11px 19px;margin:4px 3px;line-height:1.25}
+.heart{margin:5px auto 15px}.finalHeart{font-size:72px}.proposal{padding:20px;margin-top:12px}.ring{font-size:58px}
+.letter{min-height:0!important;max-width:850px;margin:auto;font-size:clamp(15px,1.65vw,20px);line-height:1.6}
+.photos{grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.photo{border-radius:17px}.photo img{height:150px}.photo:nth-child(1) img,.photo:nth-child(5) img{height:305px}.photo figcaption{font-size:clamp(11px,1.15vw,15px);line-height:1.25;padding:3px}
+/* Keep interactive controls reachable without allowing page scrolling. */
+input,.btn{pointer-events:auto;user-select:none;-webkit-user-select:none}
+/* The memory page is intentionally compact so all 7 memories + Next fit on phones. */
+#p4 .card{padding-top:15px;padding-bottom:15px}#p4 h2{font-size:clamp(28px,5vw,54px);margin:5px 0 10px}#p4 .slide-love3d{margin:0 auto 4px}
+#p4 .photos{margin:8px 0;gap:6px}#p4 .photo img,#p4 .photo:nth-child(1) img,#p4 .photo:nth-child(5) img{height:125px}#p4 .photo figcaption{font-size:11px}
+#p5 .q{padding:10px 12px;margin:7px auto}#p5 .letter{font-size:clamp(13px,1.45vw,18px);line-height:1.5}
+#p9 .q,#p10 .q{padding:10px 14px;margin:7px auto}#p9 h2,#p10 h2{margin-bottom:9px}
+#p13 .moment{padding:9px 14px}
+#p16 p{line-height:1.5}
+@media(max-width:700px){
+ section{padding:10px 8px}
+ .card{padding:15px 12px;border-radius:24px}
+ .kicker{font-size:8px;letter-spacing:3px;margin-bottom:2px}
+ .slide-love3d{width:46px;height:46px}.slide-love3d:before{font-size:42px}
+ h1{font-size:clamp(48px,14vw,90px);margin:7px 0 6px}h2{font-size:clamp(25px,7vw,42px);margin:6px 0 10px}
+ p{font-size:clamp(13px,3.7vw,17px);line-height:1.5}
+ .btn{font-size:13px;padding:9px 15px;margin:3px 2px}
+ .q{padding:10px 10px;margin:7px auto}.q p{font-size:13px;line-height:1.4}
+ .timeline{gap:6px}.moment{padding:9px 12px}.moment p{font-size:12px;line-height:1.35}
+ .photos{grid-template-columns:1fr 1fr;gap:5px;margin:7px 0}.photo{border-radius:15px}.photo img,.photo:nth-child(1) img,.photo:nth-child(5) img{height:112px}.photo figcaption{font-size:9px;line-height:1.2;padding:2px}
+ #p1 .heart{transform:rotate(-45deg) scale(.58);margin:-12px auto -10px}#p1 .script{font-size:30px}
+ #p4 .card{padding:11px 9px}#p4 h2{font-size:clamp(25px,6.4vw,35px);margin:4px 0 7px}#p4 .slide-love3d{width:40px;height:40px}#p4 .slide-love3d:before{font-size:36px}#p4 .photo img,#p4 .photo:nth-child(1) img,#p4 .photo:nth-child(5) img{height:92px}#p4 .photo figcaption{font-size:8px}
+ #p5 .letter{font-size:12px;line-height:1.45}#p5 .q{padding:7px 9px}#p5 .q p{font-size:11px}
+ #p6 .finalHeart{font-size:60px}.sig{font-size:38px}
+ #p9 .q,#p10 .q{padding:7px 8px;margin:5px auto}#p9 .q p,#p10 .q p{font-size:11px;margin-bottom:4px}#p9 .btn,#p10 .btn{font-size:11px;padding:7px 10px}
+ #p13 .moment{padding:7px 10px}#p13 .moment p{font-size:11px}
+ #p16 .finalHeart{font-size:60px}
+}
+@media(max-height:650px){
+ section{padding:7px 8px}.card{padding-top:10px;padding-bottom:10px}.slide-love3d{transform:scale(.82);margin:-2px auto 0}h2{font-size:clamp(23px,5.5vw,40px);margin:4px 0 7px}p{line-height:1.35;margin:4px 0}.q{padding:7px;margin:5px auto}.btn{padding:7px 13px}.finalHeart{font-size:58px}
+ #p4 .photo img,#p4 .photo:nth-child(1) img,#p4 .photo:nth-child(5) img{height:78px}
+}
 </style>
 </head>
 <body>
@@ -192,25 +241,40 @@ function fitSlide(el){
   if(!el)return;
   const card=el.querySelector('.card'); if(!card)return;
   card.style.transform='scale(1)';
-  requestAnimationFrame(()=>{
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
     const vv=window.visualViewport;
     const vh=vv?vv.height:window.innerHeight;
     const vw=vv?vv.width:window.innerWidth;
-    const sectionPad=vw<700?20:46;
-    const available=Math.max(260,vh-sectionPad);
-    const natural=Math.max(card.scrollHeight,card.offsetHeight);
-    let scale=Math.min(1,available/natural);
-    // Avoid an over-large card on very tall desktop displays and preserve usability on phones.
-    if(vw<700) scale=Math.min(scale,1);
+    const pad=vw<700?12:24;
+    const available=Math.max(260,vh-pad*2);
+    const rect=card.getBoundingClientRect();
+    const naturalH=Math.max(card.scrollHeight,card.offsetHeight,rect.height);
+    const naturalW=Math.max(card.scrollWidth,card.offsetWidth,rect.width);
+    const maxW=Math.max(240,vw-pad*2);
+    let scale=Math.min(1,available/naturalH,maxW/naturalW);
+    if(!Number.isFinite(scale)||scale<=0)scale=1;
     card.style.transform=`scale(${scale})`;
     el.dataset.scale=scale.toFixed(3);
-  });
+  }));
 }
-function go(n){if(n<1||n>16)return;document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));const el=document.getElementById('p'+n);if(!el)return;el.classList.add('active');current=n;window.scrollTo(0,0);if(n===5)typeLetter();fitSlide(el);el.querySelector('.reveal')?.classList.add('on');}
+function refreshFit(el){fitSlide(el);setTimeout(()=>fitSlide(el),120);setTimeout(()=>fitSlide(el),500);setTimeout(()=>fitSlide(el),1200);}
+function go(n){
+  if(n<1||n>16)return;
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById('p'+n);if(!el)return;
+  el.classList.add('active');current=n;
+  if(n===5)typeLetter();
+  el.querySelector('.reveal')?.classList.add('on');
+  refreshFit(el);
+  el.querySelectorAll('img').forEach(img=>{
+    if(!img.complete)img.addEventListener('load',()=>refreshFit(el),{once:true});
+  });
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>refreshFit(el));
+}
 
 function unlock(){const v=document.getElementById('pass').value.trim();if(v==='02102002'){document.getElementById('gateMsg').textContent='Unlocked ❤️ Welcome to our story.';petals(25);setTimeout(()=>go(2),450)}else document.getElementById('gateMsg').textContent='Not quite… try your birthday in DDMMYYYY ❤️'}
 document.getElementById('pass').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
-function typeLetter(){if(typed)return;typed=true;let i=0,e=document.getElementById('typed');(function t(){if(i<letter.length){e.textContent+=letter[i++];setTimeout(t,16)}})()}
+function typeLetter(){if(typed)return;typed=true;let i=0,e=document.getElementById('typed');(function t(){if(i<letter.length){e.textContent+=letter[i++];if(i%35===0)refreshFit(document.getElementById('p5'));setTimeout(t,10)}else{refreshFit(document.getElementById('p5'))}})()}
 function speakLetter(){if(!('speechSynthesis' in window)){alert('এই browser voice playback support করে না।');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(letter);u.lang='bn-BD';u.rate=.9;u.pitch=1.05;speechSynthesis.speak(u)}function stopSpeech(){if('speechSynthesis' in window)speechSynthesis.cancel()}
 function openLetter(type){const m={miss:'যদি আমাকে miss করো, চোখ বন্ধ করে ভাবো—আমি তোমার হাত ধরে আছি। দূরত্ব শুধু সময়ের, আমাদের নয়। ❤️',sad:'মন খারাপ হলে মনে রেখো: তোমাকে সব ঠিক করতে হবে না। একটু বিশ্রাম নাও, হাসো, আর জানো—তোমার মানুষটা তোমার পাশেই আছে। 🤍',night:'ঘুমানোর আগে শুধু একটা কথা: আজকের দিনটা শেষ হলেও আমার ভালোবাসা শেষ হয় না। চোখ বন্ধ করো, শান্তিতে ঘুমাও। 🌙',love:'যদি কখনও মনে হয় তোমাকে কেউ ভালোবাসে কি না—এই website-টা খুলে দেখো। উত্তরটা এখানে, বারবার। ❤️'};document.getElementById('whenLetter').innerHTML='<p class="script">'+m[type]+'</p>';loveBurst(20)}
 const reasons=['তোমার হাসি আমার সবচেয়ে প্রিয় জায়গা।','তোমার সাথে আমি নিজেকে সত্যি মনে করি।','তুমি আমার শান্তি।','তুমি আমার ঘর।','তুমি আমার সবচেয়ে আপন বন্ধু।','তোমার ছোট ছোট care আমার দিন বদলে দেয়।','তুমি দূরে থেকেও কাছে থাকতে জানো।','তোমার জন্য অপেক্ষা করতেও ভালো লাগে।','তুমি আমার ভবিষ্যতের সবচেয়ে সুন্দর অংশ।','কারণ সবশেষে, প্রতিবারই আমি তোমাকেই বেছে নিই।'];let ri=0;function nextReason(){ri=(ri+1)%reasons.length;document.getElementById('reasonNo').textContent=String(ri+1).padStart(2,'0');document.getElementById('reasonText').textContent=reasons[ri];loveBurst(8)}
@@ -233,7 +297,7 @@ window.addEventListener('wheel',blockPageScroll,{passive:false});
 window.addEventListener('touchmove',blockPageScroll,{passive:false});
 window.addEventListener('keydown',e=>{if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key)){e.preventDefault();}});
 window.addEventListener('resize',()=>fitSlide(document.querySelector('section.active')));
-if(window.visualViewport){window.visualViewport.addEventListener('resize',()=>fitSlide(document.querySelector('section.active')));window.visualViewport.addEventListener('scroll',()=>fitSlide(document.querySelector('section.active')));} 
+if(window.visualViewport){window.visualViewport.addEventListener('resize',()=>refreshFit(document.querySelector('section.active')));} 
 window.addEventListener('orientationchange',()=>setTimeout(()=>fitSlide(document.querySelector('section.active')),250));
 window.addEventListener('load',()=>go(1));
 petals(20);
